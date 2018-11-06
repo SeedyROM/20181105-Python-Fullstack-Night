@@ -1,12 +1,13 @@
-# 20180305-FullStack-Night
-Repo for the PDX Code Guild Full Stack night course starting 03/05/2018
+# 20181105-Python-FullStack-Night
+Repo for the PDX Code Guild Python Full Stack night course starting 11/05/2018
 
-Class is held from **March 5, 2018 - July 2, 2018**
+Class is held from **November 6, 2018 - March 2, 2019**
 M-F 6:00PM – 9:30PM
 
 
 ### Holidays
-- Memorial Day: Monday, May 28
+- Thanksgiving: Thur-Fri November 22-23
+- Winter break: TBD
 
 ## Class Members
 
@@ -16,6 +17,10 @@ M-F 6:00PM – 9:30PM
     - eunika@pdxcodeguild.com
     - 724-472-8294
     - https://github.com/DED8IRD/20180305-FullStack-Night/
+    
+- Zack Kollar
+    - zack@pdxcodeguild.com
+    - 
 
 ## Outside Resources
 - Python: 
