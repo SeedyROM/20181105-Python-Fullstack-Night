@@ -1,7 +1,7 @@
 # 20181106-Python-FullStack-Night
 Repo for the PDX Code Guild Python Full Stack night course starting 11/06/2018
 
-Class is held from **November 6, 2018 - March 4, 2019**
+Class is held from **November 6, 2018 - March 5, 2019**
 M-F 6:00PM – 9:30PM
 
 
@@ -10,6 +10,7 @@ M-F 6:00PM – 9:30PM
 - Thanksgiving: Thur-Fri, November 22-23
 - Christmas: Mon-Tue, December 24-25
 - New Years: Mon-Tue, December 31 - January 1
+- MLK Day: Monday, January 21
 
 ## Class Members
 
