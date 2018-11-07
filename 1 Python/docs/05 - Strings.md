@@ -89,7 +89,7 @@ You can also format strings with the `format` function.
 >>> a = 'one'
 >>> b = 2
 >>> print(f'a is {a} and b is {2}')
-a is one and b is two
+a is one and b is 2
 ```
 
 
