@@ -22,7 +22,7 @@ When you get an error:
 When you get stuck:
 - take a step back, re-evaluate the problem context
 - look at previous labs
-- look at the class docs, python docs, mdn, w3schools, django docs
+- look at the class docs, python docs, mdn, django docs
 - look for similar examples on stack overflow
 - try extracting bits of code and running them in isolation
 - ask a fellow student, TA, or instructor
