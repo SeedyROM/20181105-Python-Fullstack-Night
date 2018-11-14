@@ -25,5 +25,6 @@ while True:
 		break
 	nums.append(int(user_input))
 
-print(avg(*nums))
+user_avg = avg(*nums)
+print(user_avg)
 
