@@ -34,6 +34,19 @@ def latest_letter(string):
         return last 
     return ''
 
+def max(nums):
+    running_max = float('-inf')
+    for num in nums:
+        if num > running_max:
+            running_max = num
+    return running_max
+
+def sum(nums):
+    total = 0
+    for num in nums:
+        total += num
+    return total
+
 # print(is_even(1)) # False
 # print(is_even(2)) # True
 # print(opposite(1, -1)) # True
@@ -41,5 +54,7 @@ def latest_letter(string):
 # print(opposite(-1, -9)) # False
 # print(opposite(2, 3)) # False
 # print(combine([1,2,3], [4,5,6])) # [1, 4, 2, 5, 3, 6]
-print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # v
-print(latest_letter('123')) # ''
+# print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # v
+# print(latest_letter('123')) # ''
+# print(max([2,4,-9000,7,11,0]))
+# print(sum([1,2,3,4,5]))
