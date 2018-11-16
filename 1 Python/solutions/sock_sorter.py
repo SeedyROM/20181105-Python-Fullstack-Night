@@ -5,7 +5,8 @@ sock_types = ['ankle', 'crew', 'calf', 'thigh']
 socks = {}
 for i in range(100):
 	sock = random.choice(sock_types)
-	socks[sock] = socks.get(sock, 0) + 1
+	count = socks.get(sock, 0)
+	socks[sock] = count + 1
 	# # equivalent to above
 	# if sock in socks:
 	# 	socks[sock] += 1 
