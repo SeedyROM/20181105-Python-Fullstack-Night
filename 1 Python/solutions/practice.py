@@ -95,11 +95,13 @@ def even_squares(nums):
 # print(latest_letter('123')) # ''
 # print(max([2,4,-9000,7,11,0]))
 # print(sum([1,2,3,4,5]))
-print(eveneven([5, 6, 2])) # → True
-print(eveneven([5, 5, 2])) # → False
-key_list = ['a', 'b', 'c']
-val_list = ['apples', 'bananas', 'cherries']
-print(combine_lists_to_dict(key_list, val_list)) # {'a': 'apples', 'b': 'bananas', 'c': 'cherries'}
+# print(eveneven([5, 6, 2])) # → True
+# print(eveneven([5, 5, 2])) # → False
+# key_list = ['a', 'b', 'c']
+# val_list = ['apples', 'bananas', 'cherries']
+# print(combine_lists_to_dict(key_list, val_list)) # {'a': 'apples', 'b': 'bananas', 'c': 'cherries'}
 
-print(squared([1,2,3,4,5]))
-print(even_squares([1,2,3,4,5]))
+# print(squared([1,2,3,4,5]))
+# print(even_squares([1,2,3,4,5]))
+
+
