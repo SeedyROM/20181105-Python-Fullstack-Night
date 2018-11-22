@@ -1,15 +1,33 @@
 def is_even(a):
     """ returns if number is even
+
+    >>> is_even(1)
+    False
+    >>> is_even(2)
+    True
     """
     return a%2 == 0
 
 def opposite(a, b):
     """ returns if a and b have opposite polarity
+    
+    >>> opposite(1, -1)
+    True
+    >>> opposite(-1, 0)
+    True
+    >>> opposite(-1, -9)
+    False
+    >>> opposite(2, 3)
+    False
     """
     return (a >= 0 and b < 0) or (a < 0 and b >= 0)
 
 def combine_lists(list1, list2):
-    """ returns combined list of alternating items
+    """ 
+    returns combined list of alternating items
+
+    >>> combine_lists([1,2,3], [4,5,6])
+    [1, 4, 2, 5, 3, 6]
     """
     combined = []
     for i in range(len(list1)):
@@ -23,6 +41,11 @@ def combine_lists(list1, list2):
 
 def latest_letter(string):
     """ returns letter latest in the English alphabet
+    
+    >>> latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')
+    'v'
+    >>> latest_letter('123')
+    ''
     """    
     last = string[0]
     for char in string:
@@ -36,6 +59,9 @@ def latest_letter(string):
 
 def max(nums):
     """ returns max of list of numbers
+
+    >>> max([2,4,-9000,7,11,0])
+    11
     """
     running_max = float('-inf')
     for num in nums:
@@ -45,6 +71,9 @@ def max(nums):
 
 def sum(nums):
     """ returns sum of list of numbers
+
+    >>> sum([1,2,3,4,5])
+    15
     """
     total = 0
     for num in nums:
@@ -53,6 +82,11 @@ def sum(nums):
 
 def eveneven(nums):
     """ returns true if there are an even amount of even numbers in nums
+
+    >>> eveneven([5, 6, 2])
+    True
+    >>> eveneven([5, 5, 2])
+    False
     """
     even_nums = [num for num in nums if num % 2 == 0]
     # # equivalent to above
@@ -66,6 +100,9 @@ def eveneven(nums):
 
 def combine_lists_to_dict(keys, values):
     """ returns dict of keys zipped to values
+    
+    >>> combine_lists_to_dict(['a', 'b', 'c'], ['apples', 'bananas', 'cherries'])
+    {'a': 'apples', 'b': 'bananas', 'c': 'cherries'}
     """
     return dict(zip(keys, values))
     # # equivalent to above
@@ -76,43 +113,30 @@ def combine_lists_to_dict(keys, values):
 
 def squared(nums):
     """ returns list of nums squared
+
+    >>> squared([1,2,3,4,5])
+    [1, 4, 9, 16, 25]
     """
     return [num*num for num in nums]
 
 def even_squares(nums):
     """ returns square of num if num is even
+    
+    >>> even_squares([1,2,3,4,5])
+    [4, 16]
     """    
     return [num*num for num in nums if num % 2 == 0]
 
 def average(d):
+    """
+    return average of values in d
+
+    >>> average({'apple':1.2, 'banana':3.3, 'pear':2.1})
+    2.1999999999999997
+    """
     # total_sum = 0
     # for k in d:
     #     total_sum += d[k]
     # return total_sum / len(d)
 
     return sum(d.values()) / len(d)    
-
-# print(is_even(1)) # False
-# print(is_even(2)) # True
-# print(opposite(1, -1)) # True
-# print(opposite(-1, 0)) # True
-# print(opposite(-1, -9)) # False
-# print(opposite(2, 3)) # False
-# print(combine_lists([1,2,3], [4,5,6])) # [1, 4, 2, 5, 3, 6]
-# print(latest_letter('pneumonoultramicroscopicsilicovolcanoconiosis')) # v
-# print(latest_letter('123')) # ''
-# print(max([2,4,-9000,7,11,0]))
-# print(sum([1,2,3,4,5]))
-# print(eveneven([5, 6, 2])) # → True
-# print(eveneven([5, 5, 2])) # → False
-# key_list = ['a', 'b', 'c']
-# val_list = ['apples', 'bananas', 'cherries']
-# print(combine_lists_to_dict(key_list, val_list)) # {'a': 'apples', 'b': 'bananas', 'c': 'cherries'}
-
-# print(squared([1,2,3,4,5]))
-# print(even_squares([1,2,3,4,5]))
-
-# combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
-# print(average(combined)) # -> 2.2
-
-
