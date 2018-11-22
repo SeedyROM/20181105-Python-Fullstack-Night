@@ -84,6 +84,14 @@ def even_squares(nums):
     """    
     return [num*num for num in nums if num % 2 == 0]
 
+def average(d):
+    # total_sum = 0
+    # for k in d:
+    #     total_sum += d[k]
+    # return total_sum / len(d)
+
+    return sum(d.values()) / len(d)    
+
 # print(is_even(1)) # False
 # print(is_even(2)) # True
 # print(opposite(1, -1)) # True
@@ -103,5 +111,8 @@ def even_squares(nums):
 
 # print(squared([1,2,3,4,5]))
 # print(even_squares([1,2,3,4,5]))
+
+# combined = {'apple':1.2, 'banana':3.3, 'pear':2.1}
+# print(average(combined)) # -> 2.2
 
 
