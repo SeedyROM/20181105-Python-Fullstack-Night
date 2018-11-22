@@ -27,6 +27,13 @@ for file_name in os.listdir(dir_path):
 			row = dict(zip(keys, row)) # turn into dict
 			csv.append(row) # add to list 
 
+		# # equivalent way to loop through rows
+		# for i in range(1, len(contents)):
+		# 	row = contents[i]
+		# 	row = row.split(',') # turn into list
+		# 	row = dict(zip(keys, row)) # turn into dict
+		# 	csv.append(row) # add to list 
+
 		csv_to_dict[file_name] = csv # add to dict 
 
 print(csv_to_dict)
