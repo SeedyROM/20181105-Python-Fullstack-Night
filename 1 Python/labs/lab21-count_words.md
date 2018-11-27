@@ -20,8 +20,10 @@ for i in range(min(10, len(words))):  # print the top 10 words, or all of them, 
 
 To strip punctuation:
 ```py
-s = 'some!string.;'
-s.translate(None, string.punctuation)
+import string
+s = 'I $am a !string with punc&^%*tuation!'
+translator = str.maketrans('', '', string.punctuation)
+s.translate(translator) // I am a string with punctuation
 ```
 
 ## Version 2
