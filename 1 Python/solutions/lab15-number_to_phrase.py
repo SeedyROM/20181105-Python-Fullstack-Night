@@ -11,11 +11,11 @@ teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen'
 tens = ['zeroty', 'onety', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 
 
-def get_tens_phrase(num):
+def get_tens_phrase(num): num = 11
     if num < 10:
         return ones[num]
     elif num < 20:
-        return teens[num - 10]
+        return teens[num - 10] teens[2]
     elif num < 100:
         tens_digit = num // 10
         ones_digit = num % 10

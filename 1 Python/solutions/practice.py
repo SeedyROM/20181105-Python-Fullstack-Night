@@ -140,3 +140,56 @@ def average(d):
     # return total_sum / len(d)
 
     return sum(d.values()) / len(d)    
+
+def minimum(nums):
+    """
+    returns min of list of nums
+    >>> minimum([2,-1,11,8,6])
+    -1
+    """
+    # return min(nums)
+    running_min = float('inf')
+    for num in nums:
+        if num < running_min:
+            running_min = num 
+    return running_min
+
+def maximum(nums):
+    """
+    returns max of list of nums
+    >>> maximum([2,-1,11,400,-2222])
+    400
+    """
+    # return max(nums)
+    running_max = float('-inf')
+    for num in nums:
+        if num > running_max:
+            running_max = num 
+    return running_max
+
+def mean(nums):
+    """
+    returns avg of list of nums
+    >>> mean([2,2,2,2,2])
+    2.0
+    """
+    return sum(nums)/len(nums)
+
+def mode(nums): # (OPTIONAL)
+    """
+    returns mode of list of nums
+    >>> mode([2,-1,11,2,11,1])
+    [2, 11]
+    """
+    count = {}
+    for num in nums:
+        count[num] = count.get(num, 0) + 1
+    sorted_count = sorted(count.items(), key=lambda kv: kv[1], reverse=True)
+    max_count = sorted_count[0][0]
+    mode = []
+    for item in sorted_count:
+        if item[1] == max_count:
+            mode.append(item[0])
+        else:
+            break
+    return mode
