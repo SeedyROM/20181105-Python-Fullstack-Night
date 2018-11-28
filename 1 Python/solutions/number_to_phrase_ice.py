@@ -44,11 +44,11 @@ def number_to_phrase(num):
     return prefix + phrase
 
 
-def repl():
+def main():
     while True:
         user_in = input("Enter a number to convert it to English, or 'x' to exit: ")
         if user_in in ['x', 'exit']:
             break
         print(number_to_phrase(int(user_in)))
 
-repl()
+main()
