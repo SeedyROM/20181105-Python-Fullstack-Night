@@ -18,6 +18,14 @@ for i in range(min(10, len(words))):  # print the top 10 words, or all of them, 
     print(words[i])
 ```
 
+To strip punctuation:
+```py
+import string
+s = 'I $am a !string with punc&^%*tuation!'
+translator = str.maketrans('', '', string.punctuation)
+s.translate(translator) // I am a string with punctuation
+```
+
 ## Version 2
 
 Count how often each unique pair of words is used, then print the top 10 most common pairs with their counts.
