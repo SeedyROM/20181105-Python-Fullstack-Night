@@ -23,10 +23,18 @@ def read_csv_to_dict(file_path):
     contact_list = list_of_dicts
 
 
-def save_dict_to_csv(source, destination_path):
-    """ writes source list of dictionaries to csv at destination_path
+def save_dict_to_csv(destination_path):
+    """ writes contact list of dictionaries to csv at destination_path
     """
-    pass
+    global contact_list
+    csv = ','.join(keys) + '\n'
+
+    for contact in contact_list:
+        row = contact.values()
+        csv += ','.join(row) + '\n' # turn list into comma separated string
+
+    with open(destination_path, 'w') as f:
+        f.write(csv)
 
 
 def find_contact_index(name):
@@ -64,16 +72,16 @@ def retrieve_contact(name):
     return 'Contact does not exist.'
 
 
-def update_contact(name, updated_data):
+def update_contact(name, updated_data): 
     """ name: string
     updated_data: dict
     updates contact with updated_data
     """
     global contact_list
-    # 1. find the contact with the name
+    # 1. find the contact given name
     index = find_contact_index(name)
     if index is not None:
-    # 2. update that contact dict with updated_data
+    # 2. update that contact with the updated_data dict
         contact = contact_list[index]
         contact.update(updated_data)
         return contact
@@ -105,8 +113,8 @@ def repl():
     """
     global contact_list, keys
     valid_inputs = ['a', 'all', 'c', 'create', 'r', 'read', 'u', 'update', 'd', 'delete', 'x', 'exit', 'q', 'quit']
+    print("Welcome to your contact list. ")
     while True:
-        print("Welcome to your contact list. ")
 
         while True:
             user_in = input("Enter (c)reate, (r)ead, (u)pdate, or (d)elete to update your contact list, (a)ll to print all contacts, or e(x)it to quit: ").lower().strip()
@@ -128,7 +136,16 @@ def repl():
             print(contact)
 
         elif user_in.startswith('u'):
-            pass
+            contact = retrieve_contact(name)
+            if type(contact) is dict:
+                for key in keys:
+                    val = input(f"{key}: ").strip()
+                    if val:
+                        contact[key] = val
+                updated_contact = update_contact(name, contact)
+                print(updated_contact)
+            else:
+                print(contact)
 
         elif user_in.startswith('d'):
             contact = delete_contact(name)
@@ -143,8 +160,9 @@ def repl():
 
 def main():
     read_csv_to_dict('contact_list.csv')
-    print(keys)
     repl()
+    save_dict_to_csv('contact_list.csv')
+
     # # print(contact_list)
     # print(find_contact_index('george'))
     # print(retrieve_contact('danny devito'))
