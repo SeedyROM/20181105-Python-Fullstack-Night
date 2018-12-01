@@ -23,7 +23,7 @@ To strip punctuation:
 import string
 s = 'I $am a !string with punc&^%*tuation!'
 translator = str.maketrans('', '', string.punctuation)
-s.translate(translator) // I am a string with punctuation
+string_without_punct = s.translate(translator) // I am a string with punctuation
 ```
 
 ## Version 2
