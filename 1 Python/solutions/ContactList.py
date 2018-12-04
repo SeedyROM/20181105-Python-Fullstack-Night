@@ -1,19 +1,25 @@
 # ContactList.py
-# self.contact_list.py implemented as class
+# self.__contact_list.py implemented as class
 
 class ContactList:
 
     def __init__(self):
-        self.contact_list = []
+        self.__contact_list = []
 
     def __len__(self):
-        return len(self.contact_list)
+        return len(self.__contact_list)
 
-    def __repr__(self):
-        return str(self.contact_list)
+    def __str__(self):
+        return str(self.__contact_list)
+
+    def get_contact_list(self):
+        return self.__contact_list
+
+    def set_contact_list(self, modified_list):
+        self.__contact_list = modified_list
 
     def read_csv_to_dict(self, file_path):
-        """ setting global self.contact_list with csv as list of dictionaries
+        """ setting global self.__contact_list with csv as list of dictionaries
         """
         with open(file_path) as f:
             rows = f.read().split('\n')
@@ -29,7 +35,7 @@ class ContactList:
             row_dict = dict(zip(keys, row))
             list_of_dicts.append(row_dict)
 
-        self.contact_list = list_of_dicts
+        self.__contact_list = list_of_dicts
 
 
     def save_dict_to_csv(self, destination_path):
@@ -37,7 +43,7 @@ class ContactList:
         """
         csv = ','.join(keys) + '\n'
 
-        for contact in self.contact_list:
+        for contact in self.__contact_list:
             row = contact.values()
             csv += ','.join(row) + '\n' # turn list into comma separated string
 
@@ -45,13 +51,13 @@ class ContactList:
             f.write(csv)    
 
 
-    def find_contact_index(self, name):
+    def __find_contact_index(self, name):
         """ name: string
         returns index of contact given name
         """
         index = None
-        for i in range(len(self.contact_list)):
-            contact = self.contact_list[i]
+        for i in range(len(self.__contact_list)):
+            contact = self.__contact_list[i]
             if name == contact['name']:
                 index = i
                 break
@@ -60,20 +66,20 @@ class ContactList:
 
     def create_contact(self, contact):
         """ contact: dict 
-        adds contact to self.contact_list
+        adds contact to self.__contact_list
         """
-        self.contact_list.append(contact)
+        self.__contact_list.append(contact)
         return contact
 
 
     def retrieve_contact(self, name):
         """ name: string
-        finds contact given name from self.contact_list
+        finds contact given name from self.__contact_list
         returns contact data
         """
-        index = self.find_contact_index(name)
+        index = self.__find_contact_index(name)
         if index is not None:
-            return self.contact_list[index]
+            return self.__contact_list[index]
         return 'Contact does not exist.'
 
 
@@ -83,10 +89,10 @@ class ContactList:
         updates contact with updated_data
         """
         # 1. find the contact given name
-        index = self.find_contact_index(name)
+        index = self.__find_contact_index(name)
         if index is not None:
         # 2. update that contact with the updated_data dict
-            contact = self.contact_list[index]
+            contact = self.__contact_list[index]
             contact.update(updated_data)
             return contact
         return 'Contact does not exist.'
@@ -96,9 +102,9 @@ class ContactList:
         """ name: string
         deletes contact given name
         """
-        index = self.find_contact_index(name)
+        index = self.__find_contact_index(name)
         if index is not None:   
-            contact = self.contact_list.pop(index)
+            contact = self.__contact_list.pop(index)
             return f"Removed {contact['name']}"
         return 'Contact does not exist.'
 
@@ -106,6 +112,6 @@ class ContactList:
     def print_all(self):
         """ prints all contacts
         """
-        for contact in self.contact_list:
-            print(contact)
+        for contact in self.__contact_list:
+            print(contact['name'])
 

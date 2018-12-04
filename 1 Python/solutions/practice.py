@@ -193,3 +193,12 @@ def mode(nums): # (OPTIONAL)
         else:
             break
     return mode
+
+def powers_of_two(n):
+    """
+    returns list up the the nth power of 2
+    >>> powers_of_two(10)
+    [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+    """
+    nums = range(n)
+    return [2**num for num in nums]
