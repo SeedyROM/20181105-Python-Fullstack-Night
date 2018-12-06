@@ -27,10 +27,10 @@ This moves file recreates [this game](https://en.wikipedia.org/wiki/File:Connect
 *   After each move, print out a representation of the board.
     You can use `R` and `Y` to represent the pieces.
 
-## Advanced
+## Version 2
 
 *   Once all moves are done, also print out what player, if any, won.
 
-## Advanced 2
+## Version 3
 
 *   Make game playable

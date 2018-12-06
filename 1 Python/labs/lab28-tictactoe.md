@@ -11,12 +11,12 @@ The Player class has the following properties:
 * **name** = *player name*
 * **token** = *'X' or 'O'*
 
-The Board class has the following properties:
+The Game class has the following properties:
 * **board** = *your representation of the board*
 
 You can represent the board however you like, such as a 2D list, tuples, or dictionary.
 
-The Board class has the following methods:
+The Game class has the following methods:
 * `__repr__()` Returns a pretty string representation of the game board
 ```py
 >>> print(board)

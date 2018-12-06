@@ -7,7 +7,6 @@ Let's represent an ATM with a class containing two attributes: a balance and an 
 - `deposit(amount)` deposits the given amount in the account
 - `check_withdrawal(amount)` returns true if the withdrawn amount won't put the account in the negative
 - `withdraw(amount)` withdraws the amount from the account and returns it
-- `calc_interest()` returns the amount of interest calculated on the account
 
 ## Version 2
 
