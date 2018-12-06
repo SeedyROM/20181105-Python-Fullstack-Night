@@ -5,6 +5,7 @@ class Hand:
 	def __init__(self, card1, card2, name):
 		self.cards = [card1, card2] 
 		self.name = name
+		self.game_over = False
 
 	def __repr__(self):
 		return str(self.cards)
@@ -37,6 +38,9 @@ class Dealer(Hand):
 			total += points[card.rank]
 		return total
 
+	def reveal_cards(self):
+		print(self.cards)
+
 
 class Game:
 	def __init__(self, num_players=1):
@@ -67,44 +71,82 @@ class Game:
 		while not game_over:
 			print()
 			print(f"Dealer's hand: {self.dealer}")
-			print(f"Dealer's score: {self.dealer.visible_score()}")
+			print(f"Dealer's visible score: {self.dealer.visible_score()}")
+			players_moves = []
 
 			# ask players' moves
 			for i in range(len(self.players)):
 				player = self.players[i]
+				if player.game_over:
+					print(player.game_over)
+					continue
+
 				print()	
 				print(f"{player.name}'s hand: {player}")	
-				print(f"{player.name}'s visible score: {player.score()}")
-
-				game_over = self.game_over(player)
-				if game_over:
-					break
+				print(f"{player.name}'s score: {player.score()}")
 
 				while True:
 					move = input('(h)it or (s)tay: ').strip().lower()
 					if move in ['h', 'hit', 's', 'stay']:
-						break
+						if move.startswith('h'):
+							card = self.deck.draw()	# draw card from top of deck
+							player.add(card)		# add card to player's hand
+							print(card)
+							# check if game is over for the player
+							player.game_over = self.game_over(player)
+							if player.game_over:
+								print(player.game_over)
+								break
+						else:
+							break
 
-				if move.startswith('h'):
-					card = self.deck.draw()	# draw card from top of deck
-					player.add(card)		# add card to player's hand
-					print(card)
+				players_moves.append(move)
 
 			# calculate dealer's move
 			score = self.dealer.score()
-			if (score >= 21):
-				game_over = self.game_over(self.dealer)
-			elif (17 < score < 21):
+			print()
+			print(f"Dealer's hand: {self.dealer}")
+			print(f"Dealer's visible score: {self.dealer.visible_score()}")
+
+			if (17 <= score < 21):
 				print('Dealer stays')
 			else: # dealer hits
+				print('Dealer hits')
 				card = self.deck.draw()	# draw card from top of deck
 				self.dealer.add(card) 	# add card to dealer's hand
 				print(card)				
+				self.dealer.game_over = self.game_over(self.dealer)	
+				if self.dealer.game_over:
+					print(self.game_over(self.dealer))
+					break
 
+			if ('hit' not in players_moves) and ('h' not in players_moves):
+				game_over = True
 
+			if len(players_moves) == 0:
+				game_over = True
 
+		# Reveal dealer's hand
+		print()
+		print("Dealer's hand: ")
+		self.dealer.reveal_cards()
+		print(f"Dealer's score: {self.dealer.score()}")
 
-		print(game_over)
+		# Calculate winner
+		for player in self.players:
+			print()	
+			print(f"{player.name}'s hand: {player}")	
+			print(f"{player.name}'s score: {player.score()}")
+
+			if player.score() > 21:
+				print(player.name + ' busted!')
+			elif player.score() == self.dealer.score():
+				print(player.name + ' pushes')
+			elif player.score() < self.dealer.score() <= 21:
+				print(player.name + ' loses')
+			else:
+				print(player.name + ' wins!')
+
 
 
 

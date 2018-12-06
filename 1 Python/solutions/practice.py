@@ -202,3 +202,12 @@ def powers_of_two(n):
     """
     nums = range(n)
     return [2**num for num in nums]
+
+def even_numbers(n):
+    """
+    returns list of even numbers up to npython copypydfsdfsdf
+    >>> even_numbers(10)
+    [2, 4, 6, 8, 10]
+    """
+    numlist = range(1,n+1)
+    return [num for num in numlist if num % 2 == 0]
