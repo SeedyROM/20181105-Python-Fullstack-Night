@@ -1,13 +1,18 @@
 # Deck.py
 import random
+from collections import namedtuple
 
-class Card:
-    def __init__(self, rank, suit):
-        self.rank = rank
-        self.suit = suit
+# # classes with only properties and no methods can be represented as a namedtuple
+Card = namedtuple('Card', ['rank', 'suit'])
 
-    def __repr__(self):
-        return f'Card({self.rank}, {self.suit})'
+# # equivalent to Card above
+# class Card:
+#     def __init__(self, rank, suit):
+#         self.rank = rank
+#         self.suit = suit
+
+#     def __repr__(self):
+#         return f'Card({self.rank}, {self.suit})'
 
 class Deck:
     def __init__(self):

@@ -25,7 +25,7 @@ class Dealer(Hand):
 	def __init__(self, card1, card2):
 		super().__init__(card1, card2, name='Dealer')
 
-	def hidden_cards(self):
+	def __repr__(self):
 		hidden_card = 'Hidden Card'
 		cards = [hidden_card] + self.cards[1:]
 		return str(cards)		
@@ -37,6 +37,9 @@ class Dealer(Hand):
 		for card in cards:
 			total += points[card.rank]
 		return total
+
+	def reveal_cards(self):
+		print(self.cards)
 
 
 class Game:
@@ -63,38 +66,24 @@ class Game:
 		return False
 
 
-	def print_hand_and_score(self, player, hidden=False):
-		if hidden:
-			hand = player.hidden_cards()
-			score = f'Visible score: {player.visible_score()}'
-		else:
-			hand = str(player)
-			score = f'Visible score: {player.score()}'
-
-		print()
-		print('-'*58)
-		print(f"{player.name}'s hand:")
-		print('-'*58)
-		print(hand)
-		print()
-		print(score)
-		print('-'*58)
-
-
 	def play(self):
 		game_over = False
 		while not game_over:
-			self.print_hand_and_score(self.dealer, hidden=True)
+			print()
+			print(f"Dealer's hand: {self.dealer}")
+			print(f"Dealer's visible score: {self.dealer.visible_score()}")
 			players_moves = []
 
 			# ask players' moves
 			for i in range(len(self.players)):
 				player = self.players[i]
 				if player.game_over:
-					print(f'\n{player.name}: {player.game_over}\n')
+					print(player.game_over)
 					continue
 
-				self.print_hand_and_score(player)
+				print()	
+				print(f"{player.name}'s hand: {player}")	
+				print(f"{player.name}'s score: {player.score()}")
 
 				while True:
 					move = input('(h)it or (s)tay: ').strip().lower()
@@ -102,7 +91,7 @@ class Game:
 						if move.startswith('h'):
 							card = self.deck.draw()	# draw card from top of deck
 							player.add(card)		# add card to player's hand
-							print(f'\n{card}\n')
+							print(card)
 							# check if game is over for the player
 							player.game_over = self.game_over(player)
 							if player.game_over:
@@ -115,7 +104,9 @@ class Game:
 
 			# calculate dealer's move
 			score = self.dealer.score()
-			self.print_hand_and_score(self.dealer, hidden=True)
+			print()
+			print(f"Dealer's hand: {self.dealer}")
+			print(f"Dealer's visible score: {self.dealer.visible_score()}")
 
 			if (17 <= score < 21):
 				print('Dealer stays')
@@ -136,11 +127,16 @@ class Game:
 				game_over = True
 
 		# Reveal dealer's hand
-		self.print_hand_and_score(self.dealer, hidden=False)
+		print()
+		print("Dealer's hand: ")
+		self.dealer.reveal_cards()
+		print(f"Dealer's score: {self.dealer.score()}")
 
 		# Calculate winner
 		for player in self.players:
-			self.print_hand_and_score(player)
+			print()	
+			print(f"{player.name}'s hand: {player}")	
+			print(f"{player.name}'s score: {player.score()}")
 
 			if player.score() > 21:
 				print(player.name + ' busted!')
@@ -150,8 +146,6 @@ class Game:
 				print(player.name + ' loses')
 			else:
 				print(player.name + ' wins!')
-
-			print('-'*58)
 
 
 
