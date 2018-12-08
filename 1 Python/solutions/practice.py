@@ -211,3 +211,11 @@ def even_numbers(n):
     """
     numlist = range(1,n+1)
     return [num for num in numlist if num % 2 == 0]
+
+def swap_keys_and_values(dictionary):
+    """ 
+    returns dict with keys and values from dictionary swapped
+    """
+    return {v:k for k,v in dictionary.items()}
+    # # works too
+    # return dict(zip(dictionary.values(), dictionary.keys()))
