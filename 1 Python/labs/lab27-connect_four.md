@@ -9,20 +9,20 @@ Define a module that simulates a Connect Four game.
 This will consist of the following classes:
 
 `Player`:
-    - Properties
-        - `name`
-        - `color`
+- Properties
+    - `name`
+    - `color`
         
 `Game`:
-    - Properties
-        - `board`: 7x6 board representation
-        
-    - Methods
-        - `get_height(position)`: returns int of how many pieces occupy a column 
-        - `move(player, position)`: adds a player token to a column after figuring out the current height of the column 
-        - `calc_winner()`: returns true if a match (four in a row) is found 
-        - `is_full()`: returns true if all board positions are occupied 
-        - `is_game_over()`: returns true if the game is over (a winner is found or the board is full)
+- Properties
+    - `board`: 7x6 board representation
+
+- Methods
+    - `get_height(position)`: returns int of how many pieces occupy a column 
+    - `move(player, position)`: adds a player token to a column after figuring out the current height of the column 
+    - `calc_winner()`: returns true if a match (four in a row) is found 
+    - `is_full()`: returns true if all board positions are occupied 
+    - `is_game_over()`: returns true if the game is over (a winner is found or the board is full)
 
 
 Create a program that simulates the _just playing moves_ of an existing Connect Four game.
