@@ -114,7 +114,7 @@ class Stack:
     def push(self, item):
         self.stack.append(item)
 
-    def pop(self, item):
+    def pop(self):
         return self.stack.pop()
 
 # Alternatively, you can just implement a stack using a list and only appending to and popping from it.
@@ -147,7 +147,7 @@ class Queue:
     def enqueue(self, item):
         self.queue.append(item)
 
-    def dequeue(self, item):
+    def dequeue(self):
         return self.queue.pop(0)
 
 # Alternatively, you can just implement a queue using a list and only appending to end and popping from the front.
