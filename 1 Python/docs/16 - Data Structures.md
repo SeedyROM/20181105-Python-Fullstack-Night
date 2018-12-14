@@ -4,7 +4,7 @@ There are several ways to store structured data in a Python program. (For way mo
 
 ## List
 
-Lists are known as “arrays” in most other languages. A list is a simple container for other values.
+Lists are known as “arrays” in most other languages. A list is a simple *ordered* container for other values.
 
 Example:
 
