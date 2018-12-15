@@ -31,7 +31,7 @@ class Game:
 		x = position - 1
 		y = 5 - self.get_height(position)
 		if y < 0:
-			raise ValueError('Error: Column full. Choose another')
+			raise IndexError('Error: Column full. Choose another')
 		self.board[y][x] = player.color
 
 	def calc_winner(self):
@@ -75,6 +75,36 @@ class Game:
 
 if __name__ == '__main__':
 	game = Game()
-	print(game)
 	player1 = Player('1', 'Y')
 	player2 = Player('2', 'R')
+	current_round = 1
+
+	while not game.is_game_over():
+		print(game)
+		if current_round % 2 != 0:
+			current_player = player1 
+		else:
+			current_player = player2
+
+		while True:
+			move = input('Enter your move: ')
+			try:
+				position = int(move)
+				if position < 1 or position > 7:
+					raise ValueError
+				game.move(current_player, position)
+				break
+			except ValueError:
+				print('Error: Enter a number between 1 and 7.')
+			except IndexError as e:
+				print(e)
+
+		current_round += 1
+
+	print(game)
+	# calculate winner
+	winner = game.calc_winner()
+	if winner:
+		print(f'{winner} wins!')
+	else:
+		print("You're all losers!")
