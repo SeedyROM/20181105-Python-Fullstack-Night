@@ -205,7 +205,7 @@ def powers_of_two(n):
 
 def even_numbers(n):
     """
-    returns list of even numbers up to npython copypydfsdfsdf
+    returns list of even numbers up to n
     >>> even_numbers(10)
     [2, 4, 6, 8, 10]
     """
@@ -219,3 +219,21 @@ def swap_keys_and_values(dictionary):
     return {v:k for k,v in dictionary.items()}
     # # works too
     # return dict(zip(dictionary.values(), dictionary.keys()))
+
+def recursiveSummation(n):
+    """
+    returns sum of all the numbers up to n
+    for instance, if n = 4, recursiveSummation(4) = 10 = (4 + 3 + 2 + 1) 
+
+    >>> recursiveSummation(5)
+    15
+    """
+    # base case (n = 0) = 0
+    if n <= 1:
+        return n
+    # recursive case (n + (recursiveSummation(n-1)))
+    return n + recursiveSummation(n-1)
+           # 4 + recursiveSummation(3)
+           #   + 3 + recursiveSummation(2)
+           #       + 2 + recursiveSummation(1)
+           #           + 1
