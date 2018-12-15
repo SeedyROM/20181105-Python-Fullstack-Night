@@ -18,7 +18,7 @@ class Game:
 			board += '|'.join(row) + '\n'
 		return board
 
-	def get_height(self, position):
+	def __get_height(self, position):
 		counter = 0
 		for i in range(len(self.board)-1, -1, -1):
 			find_token = self.board[i][position-1]
@@ -29,7 +29,7 @@ class Game:
 
 	def move(self, player, position):
 		x = position - 1
-		y = 5 - self.get_height(position)
+		y = 5 - self.__get_height(position)
 		if y < 0:
 			raise IndexError('Error: Column full. Choose another')
 		self.board[y][x] = player.color
