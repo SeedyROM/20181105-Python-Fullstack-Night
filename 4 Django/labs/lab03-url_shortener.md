@@ -13,6 +13,6 @@ A url shortener is a web service that can take long urls (`https://www.google.co
 You *could* use the ID in the url, instead of some code, but that then exposes some details about your database to the public.
 
 Your app should contain the following:
-- one url that returns a page for entering in a url to be shortened, and possibly a list of entries (`localhost/urlshorten/index/`)
-- another url and view for receiving the `POST`ed url, generating a random string, and saving it to the database (`localhost/urlshorten/saveurl`)
-- a third url that performs the redirecting (`localhost/redirect/pEc4vt`)
+- one url that returns a page for entering in a url to be shortened, and possibly a list of entries (`http://localhost:8000/url_shortener/`)
+- another url and view for receiving the `POST`ed url, generating a random string, and saving it to the database (`http://localhost:8000/url_shortener/create`)
+- a third url that performs the redirecting (`http://localhost:8000/url_shortener/pEc4vt`)
